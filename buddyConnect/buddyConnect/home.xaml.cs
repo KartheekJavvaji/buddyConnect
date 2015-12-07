@@ -26,5 +26,15 @@ namespace buddyConnect
         {
             this.InitializeComponent();
         }
+
+        private void chatsClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void friendListClick(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

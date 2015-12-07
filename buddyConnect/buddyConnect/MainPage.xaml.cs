@@ -25,8 +25,8 @@ namespace buddyConnect
         public MainPage()
         {
             this.InitializeComponent();
-            backButton.Visibility = Visibility.Collapsed;
-
+            //backButton.Visibility = Visibility.Collapsed;
+            contentFrame.Navigate(typeof(home));
         }
 
         private void hamburgerButton_Click(object sender, RoutedEventArgs e)
@@ -46,30 +46,24 @@ namespace buddyConnect
             {
                 case "home":
                     contentFrame.Navigate(typeof(home));
-                    backButton.Visibility = Visibility.Collapsed;
                     break;
 
                 case "profile":
-                    contentFrame.Navigate(typeof(profile));
-                    backButton.Visibility = Visibility.Visible;
+                    contentFrame.Navigate(typeof(profile));                   
                     break;
                 case "findFriends":
                     contentFrame.Navigate(typeof(findFriends));
-                    backButton.Visibility = Visibility.Collapsed;
                     break;
 
                 case "requests":
                     contentFrame.Navigate(typeof(requests));
-                    backButton.Visibility = Visibility.Visible;
                     break;
                 case "friendLocation":
                     contentFrame.Navigate(typeof(friendLocation));
-                    backButton.Visibility = Visibility.Collapsed;
                     break;
 
                 case "settings":
                     contentFrame.Navigate(typeof(settings));
-                    backButton.Visibility = Visibility.Visible;
                     break;
                 
                 default:

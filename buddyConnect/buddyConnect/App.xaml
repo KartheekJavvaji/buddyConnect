@@ -7,13 +7,13 @@
     <Application.Resources>
         <Style TargetType="TextBlock" x:Key="tb1">
             <Setter Property="Foreground" Value="Goldenrod"/>
-            <Setter Property="FontSize" Value="36"/>
+            <Setter Property="FontSize" Value="28"/>
             <Setter Property="FontFamily" Value="Tw Cen MT"/>
         </Style>
         <Style TargetType="TextBlock" x:Key="tbHam">
-            <Setter Property="Foreground" Value="BlueViolet"/>
-            <Setter Property="FontSize" Value="24"/>
-            <Setter Property="FontFamily" Value="Tw Cen MT"/>
+            <Setter Property="Foreground" Value="{StaticResource SystemControlBackgroundAccentBrush}"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontFamily" Value="Segoe WP SemiLight"/>
         </Style>
     </Application.Resources>
 

@@ -18,34 +18,33 @@
             <RelativePanel>
                 <Button x:Name="hamburgerButton" 
                     FontFamily="Segoe MDL2 Assets" 
-                    Content="&#xE700;" 
-                    FontSize="30" 
+                    Content="&#xE700;"
+                    Foreground="{StaticResource SystemControlBackgroundAccentBrush}"
+                    FontSize="30"
                     Click="hamburgerButton_Click"
                     RelativePanel.AlignLeftWithPanel="True"/>
-                <Button x:Name="backButton"
+                <!--<Button x:Name="backButton"
                     FontFamily="Segoe MDL2 Assets"
                     Content="&#xE112;"
                     FontSize="24"
                     RelativePanel.AlignVerticalCenterWithPanel="True"
                     Background="{ThemeResource BackButtonBackgroundThemeBrush}"
-                    RelativePanel.RightOf="hamburgerButton"/>
+                    RelativePanel.RightOf="hamburgerButton"/>-->
                 <TextBlock x:Name="titleText" 
-                       Text="Title" 
+                       Text="Buddy Connect" 
                        Typography.Capitals="AllSmallCaps"
                        FontSize="24"
                        RelativePanel.AlignVerticalCenterWithPanel="True"
                        VerticalAlignment="Center"
-                       Margin="10,0,0,0"                       
-                       RelativePanel.RightOf="backButton"/>
-                <Button x:Name="search"
-                        
-                <AutoSuggestBox Name="myAutoSuggestBox"
-                                Visibility="Collapsed"
+                       Margin="10,0,0,0" 
+                       RelativePanel.RightOf="hamburgerButton"/>                                
+                <!--<AutoSuggestBox Name="myAutoSuggestBox"
                                 QueryIcon="Find" 
-                                PlaceholderText="search here" 
-                                Margin="10,0,0,0" Width="200"
+                                PlaceholderText="search here"
+                                MinWidth="200"
                                 RelativePanel.AlignVerticalCenterWithPanel="True"
-                                RelativePanel.AlignRightWithPanel="True"/>                
+                                RelativePanel.AlignRightWithPanel="True"
+                                RelativePanel.RightOf="titleText"/>-->                
             </RelativePanel>
             <SplitView x:Name="mySplitView" 
                    Grid.Row="1" 
@@ -54,8 +53,15 @@
                    OpenPaneLength="200" 
                    DisplayMode="CompactOverlay" 
                    IsPaneOpen="False">
-                <SplitView.Pane >
+                <SplitView.Pane>
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
                     <ListBox x:Name="menuItems"
+                             RelativePanel.AlignTopWithPanel="True"
                          SelectionMode="Single"
                          SelectionChanged="menuItems_SelectionChanged">
                         <ListBoxItem x:Name="home">
@@ -78,7 +84,7 @@
                                         Style="{ThemeResource tbHam}"/>
                             </StackPanel>
                         </ListBoxItem>
-                        <ListBoxItem x:Name="findFriend">
+                        <ListBoxItem x:Name="findFriends">
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock FontFamily="Segoe MDL2 Assets" 
                                        Text="&#xe748;" 
@@ -119,6 +125,14 @@
                             </StackPanel>
                         </ListBoxItem>                                          
                     </ListBox>
+                    <HyperlinkButton Content="about" 
+                                     FontSize="15"
+                                     Grid.Row="1"
+                                     VerticalAlignment="Bottom"
+                                     HorizontalAlignment="Right"
+                                     Margin="0,0,15,10"/>                       
+                    </Grid>
+                    </ScrollViewer>
                 </SplitView.Pane>
                 <SplitView.Content>
                     <Frame x:Name="contentFrame"/>
