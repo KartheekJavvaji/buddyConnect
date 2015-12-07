@@ -27,8 +27,7 @@
                     Content="&#xE112;"
                     FontSize="36"
                     Background="{ThemeResource BackButtonBackgroundThemeBrush}"
-                    RelativePanel.RightOf="hamburgerButton"
-                    Click="backButton_Click"/>
+                    RelativePanel.RightOf="hamburgerButton"/>
                 <TextBlock x:Name="titleText" 
                        Text="Title" 
                        Typography.Capitals="AllSmallCaps"

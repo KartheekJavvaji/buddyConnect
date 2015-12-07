@@ -4,5 +4,12 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:buddyConnect"
     RequestedTheme="Light">
+    <Application.Resources>
+        <Style TargetType="TextBlock" x:Key="tb1">
+            <Setter Property="Foreground" Value="Goldenrod"/>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="FontFamily" Value="Tw Cen MT"/>
+        </Style>
+    </Application.Resources>
 
 </Application>

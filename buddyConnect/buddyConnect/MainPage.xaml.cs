@@ -25,6 +25,50 @@ namespace buddyConnect
         public MainPage()
         {
             this.InitializeComponent();
+            backButton.Visibility = Visibility.Collapsed;
+            financial.IsSelected = true;
+        }
+
+        private void hamburgerButton_Click(object sender, RoutedEventArgs e)
+        {
+            mySplitView.IsPaneOpen = !mySplitView.IsPaneOpen;
+        }
+
+        private void menuItems_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selected = menuItems.Items.Cast<ListBoxItem>()
+                .Where(p => p.IsSelected)
+                .Select(t => t.Name)
+                .ToArray();
+
+            titleText.Text = selected[0];
+            switch (selected[0])
+            {
+                case "financial":
+                    contentFrame.Navigate(typeof(financial));
+                    backButton.Visibility = Visibility.Collapsed;
+                    break;
+
+                case "food":
+                    contentFrame.Navigate(typeof(food));
+                    backButton.Visibility = Visibility.Visible;
+                    break;
+
+                default:
+                    break;
+            }
+
+        }
+
+        private void backButton_Click(object sender, RoutedEventArgs e)
+        {
+
+
+            if (contentFrame.CanGoBack)
+            {
+                contentFrame.GoBack();
+                financial.IsSelected = true;
+            }
         }
     }
 }
