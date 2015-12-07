@@ -19,38 +19,38 @@
                 <Button x:Name="hamburgerButton" 
                     FontFamily="Segoe MDL2 Assets" 
                     Content="&#xE700;" 
-                    FontSize="36" 
+                    FontSize="30" 
                     Click="hamburgerButton_Click"
                     RelativePanel.AlignLeftWithPanel="True"/>
                 <Button x:Name="backButton"
                     FontFamily="Segoe MDL2 Assets"
                     Content="&#xE112;"
-                    FontSize="36"
+                    FontSize="24"
+                    RelativePanel.AlignVerticalCenterWithPanel="True"
                     Background="{ThemeResource BackButtonBackgroundThemeBrush}"
                     RelativePanel.RightOf="hamburgerButton"/>
                 <TextBlock x:Name="titleText" 
                        Text="Title" 
                        Typography.Capitals="AllSmallCaps"
                        FontSize="24"
-                       Margin="10,0,0,0"
                        RelativePanel.AlignVerticalCenterWithPanel="True"
+                       VerticalAlignment="Center"
+                       Margin="10,0,0,0"                       
                        RelativePanel.RightOf="backButton"/>
-                <TextBox x:Name="searchBarText"
-                     FontSize="24"
-                     MinWidth="125"
-                     PlaceholderText="Search"
-                     RelativePanel.AlignVerticalCenterWithPanel="True"
-                     RelativePanel.LeftOf="searchButton"/>
-                <Button x:Name="searchButton"
-                    FontFamily="Segoe MDL2 Assets"
-                    Content="&#xe094;"
-                    FontSize="36"
-                    RelativePanel.AlignRightWithPanel="True"/>
+                <Button x:Name="search"
+                        
+                <AutoSuggestBox Name="myAutoSuggestBox"
+                                Visibility="Collapsed"
+                                QueryIcon="Find" 
+                                PlaceholderText="search here" 
+                                Margin="10,0,0,0" Width="200"
+                                RelativePanel.AlignVerticalCenterWithPanel="True"
+                                RelativePanel.AlignRightWithPanel="True"/>                
             </RelativePanel>
             <SplitView x:Name="mySplitView" 
                    Grid.Row="1" 
                    Background="CadetBlue" 
-                   CompactPaneLength="55" 
+                   CompactPaneLength="50" 
                    OpenPaneLength="200" 
                    DisplayMode="CompactOverlay" 
                    IsPaneOpen="False">
@@ -58,26 +58,66 @@
                     <ListBox x:Name="menuItems"
                          SelectionMode="Single"
                          SelectionChanged="menuItems_SelectionChanged">
-                        <ListBoxItem x:Name="financial">
+                        <ListBoxItem x:Name="home">
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock FontFamily="Segoe MDL2 Assets" 
                                        Text="&#xe10f;" 
-                                       FontSize="36"/>
-                                <TextBlock Margin="20,0,0,0" 
-                                       Text="Financial" 
                                        FontSize="24"/>
+                                <TextBlock Margin="20,0,0,0" 
+                                       Text="home" 
+                                        Style="{ThemeResource tbHam}"/>
                             </StackPanel>
                         </ListBoxItem>
-                        <ListBoxItem x:Name="food">
+                        <ListBoxItem x:Name="profile">
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock FontFamily="Segoe MDL2 Assets" 
-                                       Text="&#xe082;" 
-                                       FontSize="36"/>
-                                <TextBlock Margin="20,0,0,0" 
-                                       Text="Food" 
+                                       Text="&#xe156;" 
                                        FontSize="24"/>
+                                <TextBlock Margin="20,0,0,0" 
+                                       Text="profile" 
+                                        Style="{ThemeResource tbHam}"/>
                             </StackPanel>
                         </ListBoxItem>
+                        <ListBoxItem x:Name="findFriend">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontFamily="Segoe MDL2 Assets" 
+                                       Text="&#xe748;" 
+                                       FontSize="24"/>
+                                <TextBlock Margin="20,0,0,0" 
+                                       Text="find friend" 
+                                        Style="{ThemeResource tbHam}"/>
+                            </StackPanel>
+                        </ListBoxItem>
+                        <ListBoxItem x:Name="requests">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontFamily="Segoe MDL2 Assets" 
+                                       Text="&#xe1a6;" 
+                                       FontSize="24"/>
+                                <TextBlock Margin="20,0,0,0" 
+                                       Text="requests" 
+                                        Style="{ThemeResource tbHam}"/>
+                            </StackPanel>
+                        </ListBoxItem>
+                        <ListBoxItem x:Name="friendLocation">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontFamily="Segoe MDL2 Assets" 
+                                       Text="&#xe759;" 
+                                       FontSize="24"/>
+                                <TextBlock Margin="20,0,0,0" 
+                                       Text="friends location" 
+                                        Style="{ThemeResource tbHam}"/>
+                            </StackPanel>
+                        </ListBoxItem>
+                        <ListBoxItem x:Name="settings">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontFamily="Segoe MDL2 Assets" 
+                                       Text="&#xe713;" 
+                                       FontSize="24"/>
+                                <TextBlock Margin="20,0,0,0" 
+                                       Text="settings" 
+                                       Style="{ThemeResource tbHam}"/>
+                            </StackPanel>
+                        </ListBoxItem>                                          
                     </ListBox>
                 </SplitView.Pane>
                 <SplitView.Content>

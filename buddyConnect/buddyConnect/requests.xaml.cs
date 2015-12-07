@@ -20,9 +20,9 @@ namespace buddyConnect
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class request : Page
+    public sealed partial class requests : Page
     {
-        public request()
+        public requests()
         {
             this.InitializeComponent();
         }

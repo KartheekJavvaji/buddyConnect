@@ -26,7 +26,7 @@ namespace buddyConnect
         {
             this.InitializeComponent();
             backButton.Visibility = Visibility.Collapsed;
-            financial.IsSelected = true;
+
         }
 
         private void hamburgerButton_Click(object sender, RoutedEventArgs e)
@@ -44,16 +44,34 @@ namespace buddyConnect
             titleText.Text = selected[0];
             switch (selected[0])
             {
-                case "financial":
-                    contentFrame.Navigate(typeof(financial));
+                case "home":
+                    contentFrame.Navigate(typeof(home));
                     backButton.Visibility = Visibility.Collapsed;
                     break;
 
-                case "food":
-                    contentFrame.Navigate(typeof(food));
+                case "profile":
+                    contentFrame.Navigate(typeof(profile));
                     backButton.Visibility = Visibility.Visible;
                     break;
+                case "findFriends":
+                    contentFrame.Navigate(typeof(findFriends));
+                    backButton.Visibility = Visibility.Collapsed;
+                    break;
 
+                case "requests":
+                    contentFrame.Navigate(typeof(requests));
+                    backButton.Visibility = Visibility.Visible;
+                    break;
+                case "friendLocation":
+                    contentFrame.Navigate(typeof(friendLocation));
+                    backButton.Visibility = Visibility.Collapsed;
+                    break;
+
+                case "settings":
+                    contentFrame.Navigate(typeof(settings));
+                    backButton.Visibility = Visibility.Visible;
+                    break;
+                
                 default:
                     break;
             }
@@ -67,7 +85,6 @@ namespace buddyConnect
             if (contentFrame.CanGoBack)
             {
                 contentFrame.GoBack();
-                financial.IsSelected = true;
             }
         }
     }
