@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace buddyConnect.Models
 {
-    public class loginC
+    public class Datum
     {
         public string result { get; set; }
         public string output { get; set; }
@@ -30,4 +30,11 @@ namespace buddyConnect.Models
         public string gender { get; set; }
         public string points { get; set; }
     }
+
+    public class loginC
+    {
+        public List<Datum> data { get; set; }
+        
+    }
+    
 }
