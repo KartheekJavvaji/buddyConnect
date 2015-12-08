@@ -27,10 +27,13 @@
             <Setter Property="Width" Value="30"/>
             <Setter Property="Height" Value="30"/>
         </Style>
+
+
+        
     </Page.Resources>
-    <Grid >
+    <Grid x:Name="homeGrid" Background="White">
             <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
+                <RowDefinition Height="45"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
@@ -42,28 +45,34 @@
 
                 <Button x:Name="chats" 
                         Grid.Column="0"
-                        Width="{Binding }"
                         Click="chatsClick"
+                        Content="CHATS"
                         BorderThickness="0"
-                        HorizontalAlignment="Center">
-                    <StackPanel Orientation="Horizontal">
-                         <TextBlock Text="Chats"/>
-                    </StackPanel>
-                </Button>
-
-            <Button x:Name="friendList" 
-                    Grid.Column="1" 
-                    Click="friendListClick" 
-                    BorderThickness="0"
-                    HorizontalAlignment="Center">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Friend list"/>
-                </StackPanel>
-            </Button>
-        </Grid>
+                        VerticalAlignment="Stretch"
+                        HorizontalAlignment="Stretch"/>
+                
+                <Button x:Name="friendList" 
+                        Grid.Column="1" 
+                        Click="friendListClick" 
+                        BorderThickness="0"
+                        Content="BUDDIES"
+                        VerticalAlignment="Stretch"
+                        HorizontalAlignment="Stretch"/>
+              </Grid>
 
         <StackPanel Grid.Row="1">
-<TextBlock Text="FriendChat"
+            <ListView> 
+                <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <Image Source="{Binding ImagePath}"/>
+                        <TextBlock Text="textbox"/>
+                        <TextBlock Text="name" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            </ListView>
+            <TextBlock Text="FriendChat"
            Style="{ThemeResource tb1}"
            HorizontalAlignment="Center"/>
         </StackPanel>

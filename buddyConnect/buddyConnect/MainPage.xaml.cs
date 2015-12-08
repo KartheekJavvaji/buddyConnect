@@ -41,7 +41,7 @@ namespace buddyConnect
                 .Select(t => t.Name)
                 .ToArray();
 
-            titleText.Text = selected[0];
+            title.Text = selected[0];
             switch (selected[0])
             {
                 case "home":
@@ -74,12 +74,12 @@ namespace buddyConnect
 
         private void backButton_Click(object sender, RoutedEventArgs e)
         {
-
-
             if (contentFrame.CanGoBack)
             {
                 contentFrame.GoBack();
             }
         }
     }
+
+    
 }

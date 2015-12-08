@@ -14,41 +14,28 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-
-            <RelativePanel>
-                <Button x:Name="hamburgerButton" 
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+            <Button x:Name="hamburgerButton" 
                     FontFamily="Segoe MDL2 Assets" 
                     Content="&#xE700;"
                     Foreground="{StaticResource SystemControlBackgroundAccentBrush}"
                     FontSize="30"
                     Click="hamburgerButton_Click"
                     RelativePanel.AlignLeftWithPanel="True"/>
-                <!--<Button x:Name="backButton"
-                    FontFamily="Segoe MDL2 Assets"
-                    Content="&#xE112;"
-                    FontSize="24"
-                    RelativePanel.AlignVerticalCenterWithPanel="True"
-                    Background="{ThemeResource BackButtonBackgroundThemeBrush}"
-                    RelativePanel.RightOf="hamburgerButton"/>-->
-                <TextBlock x:Name="titleText" 
-                       Text="Buddy Connect" 
-                       Typography.Capitals="AllSmallCaps"
-                       FontSize="24"
-                       RelativePanel.AlignVerticalCenterWithPanel="True"
-                       VerticalAlignment="Center"
-                       Margin="10,0,0,0" 
-                       RelativePanel.RightOf="hamburgerButton"/>                                
-                <!--<AutoSuggestBox Name="myAutoSuggestBox"
-                                QueryIcon="Find" 
-                                PlaceholderText="search here"
-                                MinWidth="200"
-                                RelativePanel.AlignVerticalCenterWithPanel="True"
-                                RelativePanel.AlignRightWithPanel="True"
-                                RelativePanel.RightOf="titleText"/>-->                
-            </RelativePanel>
+                <TextBlock x:Name="title"
+                           Grid.Column="1"
+                           VerticalAlignment="Center"
+                           Text="Buddy Connect"
+                           Style="{ThemeResource tb1}"
+                           HorizontalAlignment="Left"
+                           Margin="50,0,0,0"/>
+            </Grid>
             <SplitView x:Name="mySplitView" 
-                   Grid.Row="1" 
-                   Background="CadetBlue" 
+                   Grid.Row="1"                    
                    CompactPaneLength="50" 
                    OpenPaneLength="200" 
                    DisplayMode="CompactOverlay" 
@@ -135,7 +122,8 @@
                     </ScrollViewer>
                 </SplitView.Pane>
                 <SplitView.Content>
-                    <Frame x:Name="contentFrame"/>
+                    <Frame x:Name="contentFrame" 
+                           Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
                 </SplitView.Content>
             </SplitView>
         </Grid>
