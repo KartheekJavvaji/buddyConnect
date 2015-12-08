@@ -1,0 +1,143 @@
+﻿<Page
+    x:Class="buddyConnect.newuser"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:buddyConnect"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Margin="15,40,0,0"  
+          MaxWidth="600"
+          Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="sign up" 
+                   Foreground="{ThemeResource SystemControlBackgroundAccentBrush}"
+                   FontSize="28"/>
+        <ScrollViewer Grid.Row="1" 
+                      VerticalScrollBarVisibility="Visible">
+            <Grid x:Name="signUp" 
+              Margin="20,20,20,0"
+              MaxWidth="600"
+              VerticalAlignment="Center"
+              Grid.ColumnSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock x:Name="error"
+           Text="invalid username or password"
+           Foreground="red"
+           Visibility="Collapsed"/>
+                <TextBox x:Name="username"
+                         Grid.Row="1"                 
+                         Header="Username" 
+                         FontSize="20"
+                         PlaceholderText="enter the username" 
+                         Margin="0,6"
+                         TextChanged="username_TextChanged"/>
+
+                <PasswordBox x:Name="password"
+                             Header="Password" 
+                             Grid.Row="2"
+                             FontSize="20"
+                             IsEnabled="False"
+                             PlaceholderText="enter the password"
+                             Margin="0,6" 
+                             PasswordRevealMode="Peek"
+                             PasswordChanged="password_PasswordChanged"/>
+
+                <PasswordBox x:Name="passwordR"
+                             Header="renter password" 
+                             Grid.Row="3"
+                             FontSize="20"
+                             IsEnabled="False"
+                             PlaceholderText="enter the password"
+                             Margin="0,6" 
+                             PasswordRevealMode="Peek"
+                             PasswordChanged="passwordR_PasswordChanged"/>
+
+                <TextBox x:Name="email"
+                         Grid.Row="4"                 
+                         Header="email" 
+                         FontSize="20"
+                         IsEnabled="False"
+                         PlaceholderText="enter the username" 
+                         Margin="0,6"
+                         TextChanged="email_TextChanged"/>
+                
+                <Grid x:Name="genderGrid"
+                      Margin="0,6" 
+                      Grid.Row="6">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <RadioButton x:Name="maleRadio" 
+                                 Content="i am male"
+                                 HorizontalAlignment="Center"
+                                 GroupName="gender"
+                                 IsEnabled="False"
+                                 IsChecked="True"
+                                 Checked="RadioButton_Checked"/>
+                    <RadioButton x:Name="femaleRadio" 
+                                 Content="i am female"
+                                 HorizontalAlignment="Center"
+                                 GroupName="gender"
+                                 IsEnabled="False"
+                                 Grid.Column="1"
+                                 Checked="RadioButton_Checked"/>
+                </Grid>
+                <RelativePanel Grid.Row="7">
+                <TextBlock x:Name="stats" 
+                           Text="Status :" 
+                           FontSize="20"
+                           Grid.Row="7"
+                           Margin="0,6"
+                           RelativePanel.AlignVerticalCenterWithPanel="True"
+                           RelativePanel.AlignLeftWithPanel="True"/>
+                <ComboBox x:Name="status" 
+                          Grid.Row="8" 
+                          Margin="50,0,0,0"
+                          RelativePanel.RightOf="stats"
+                          RelativePanel.AlignVerticalCenterWithPanel="True"
+                          SelectionChanged="status_SelectionChanged">
+                    <ComboBoxItem Content="--------" 
+                                  IsSelected="True"/>
+                    <ComboBoxItem Content="single" />
+                    <ComboBoxItem Content="dating"/>
+                    <ComboBoxItem Content="engaged"/>
+                    <ComboBoxItem Content="married"/>
+                    <ComboBoxItem Content="divorced"/>
+                    <ComboBoxItem Content="widow"/>
+                    <ComboBoxItem Content="on the prowl"/>
+                </ComboBox>
+                </RelativePanel>
+            </Grid>
+        </ScrollViewer>
+        <Button x:Name="signup"
+                Grid.Row="2"
+                Grid.Column="1"
+                IsEnabled="False"
+                Margin="20,30,20,40"
+                HorizontalAlignment="Stretch"
+                Click="signup_Click"
+                BorderBrush="{ThemeResource SystemControlBackgroundAccentBrush}"
+                Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+                Foreground="{ThemeResource SystemControlBackgroundAccentBrush}"
+                Content="sign up"/>
+    </Grid>
+</Page>

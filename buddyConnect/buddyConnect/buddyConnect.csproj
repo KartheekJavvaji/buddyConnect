@@ -115,6 +115,9 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\loginC.cs" />
+    <Compile Include="newuser.xaml.cs">
+      <DependentUpon>newuser.xaml</DependentUpon>
+    </Compile>
     <Compile Include="profile.xaml.cs">
       <DependentUpon>profile.xaml</DependentUpon>
     </Compile>
@@ -170,6 +173,10 @@
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="newuser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="profile.xaml">
       <SubType>Designer</SubType>

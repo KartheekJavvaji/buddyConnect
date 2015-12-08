@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Net.Http;
+using System.Net;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -16,6 +16,8 @@ using Windows.UI.Xaml.Navigation;
 using buddyConnect.Models;
 using Newtonsoft.Json;
 using System.Xml;
+using System.Xml.Serialization;
+using System.Net.Http;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -26,20 +28,25 @@ namespace buddyConnect
     /// </summary>
     public sealed partial class login : Page
     {
+        loginC loginCObj;
+
         private HttpClient httpClient;
         private HttpResponseMessage responseMes;
-        loginC loginCObj;
-        
         public login()
         {
             this.InitializeComponent();
-            httpClient = new HttpClient();
-            var headers = httpClient.DefaultRequestHeaders;
-            headers.UserAgent.ParseAdd("ie");
-            headers.UserAgent.ParseAdd("Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; WOW64; Trident/6.0)");
 
+            httpClient = new HttpClient();
         }
 
+        [XmlRoot(ElementName = "string", Namespace = "http://tempuri.org/")]
+        public class ResponseString
+        {
+            [XmlAttribute(AttributeName = "xmlns")]
+            public string Xmlns { get; set; }
+            [XmlText]
+            public string Text { get; set; }
+        }
         private void username_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (!string.IsNullOrEmpty(username.Text))
@@ -58,23 +65,21 @@ namespace buddyConnect
 
         private void newUser_Click(object sender, RoutedEventArgs e)
         {
-
+            Frame.Navigate(typeof(newuser));
         }
 
         private async void loginButton_Click(object sender, RoutedEventArgs e)
         {
-            responseMes = new HttpResponseMessage();
-
             // The value of 'InputAddress' is set by the user and is therefore untrusted input. 
             // If we can't create a valid URI, 
             // We notify the user about the incorrect input.
+             
+        string responseBodyAsText;
 
-            string responseBodyAsText;
-
-
+            string getLogin= "http://www.graylogictech.com/glt_cs/BuddyTrackerWebservice.asmx/authenticate?userid="+username.Text+"&pwd="+password.Password+"&lat=&log=";
             try
             {
-                responseMes = await httpClient.GetAsync("http://www.graylogictech.com/glt_cs/BuddyTrackerWebservice.asmx/authenticate?userid=sairam&pwd=1234&lat=&log=");
+                responseMes = await httpClient.GetAsync(getLogin);
 
                 responseMes.EnsureSuccessStatusCode();
 
@@ -84,13 +89,28 @@ namespace buddyConnect
             catch (Exception ex)
             {
                 // Need to convert int HResult to hex string
-                usernameTb.Text = "Error = " + ex.HResult.ToString("X") +
-                    "  Message: " + ex.Message;
+                
                 responseBodyAsText = "";
             }
-            usernameTb.Text = responseBodyAsText;
-            DataContext = loginCObj;
+
+            XmlSerializer x = new XmlSerializer(typeof(ResponseString));
+            ResponseString myTest = (ResponseString)x.Deserialize(new StringReader(responseBodyAsText));
+            string res = myTest.Text;
+            loginCObj = JsonConvert.DeserializeObject<loginC>(res);
+            if (loginCObj.data[0].result == "true")
+            {
+                Frame.Navigate(typeof(MainPage),loginCObj);
+
+            }
+            else
+            {
+                password.Password = string.Empty;
+                error.Visibility = Visibility.Visible;
+            }
 
         }
+
+           
     }
+    
 }

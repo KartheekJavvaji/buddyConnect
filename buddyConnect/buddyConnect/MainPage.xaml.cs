@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using buddyConnect.Models;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -27,6 +28,12 @@ namespace buddyConnect
             this.InitializeComponent();
             //backButton.Visibility = Visibility.Collapsed;
             contentFrame.Navigate(typeof(home));
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            var userDetails = (loginC)e.Parameter;
+            title.Text = userDetails.data[0].username;
         }
 
         private void hamburgerButton_Click(object sender, RoutedEventArgs e)

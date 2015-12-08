@@ -6,14 +6,13 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-    
     <Grid Margin="15,40,0,0"  
           MaxWidth="600"
           Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="*" MinHeight="50"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -35,10 +34,14 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
-
+            <TextBlock x:Name="error"
+           Text="invalid username or password"
+           Foreground="red"
+           Visibility="Collapsed"/>
             <TextBox x:Name="username"
-                         Grid.Row="0"                 
+                         Grid.Row="1"                 
                          Header="Username" 
                          FontSize="20"
                          PlaceholderText="enter the username" 
@@ -49,7 +52,7 @@
             <PasswordBox x:Name="password"
                              Header="Password" 
                              IsEnabled="False"
-                             Grid.Row="1"
+                             Grid.Row="2"
                              FontSize="20"
                              PlaceholderText="enter the password"
                              Margin="0,6" 
@@ -76,11 +79,6 @@
                 Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
                 Foreground="{ThemeResource SystemControlBackgroundAccentBrush}"
                 Content="ok"/>
-        <TextBlock x:Name="usernameTb"
-                   Text="username"
-                   Grid.Row="2"
-                   TextWrapping="Wrap"
-                   Style="{ThemeResource tbHam}"/>
         <HyperlinkButton x:Name="newUser" 
                          Content="new user?"
                          Grid.Column="1"
