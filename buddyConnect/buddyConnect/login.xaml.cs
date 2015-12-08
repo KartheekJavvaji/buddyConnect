@@ -13,7 +13,9 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using buddyConnect.Models;
 using Newtonsoft.Json;
+using System.Xml;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -26,7 +28,7 @@ namespace buddyConnect
     {
         private HttpClient httpClient;
         private HttpResponseMessage responseMes;
-
+        loginC loginCObj;
         
         public login()
         {
@@ -72,7 +74,7 @@ namespace buddyConnect
 
             try
             {
-                responseMes = await httpClient.GetAsync("https://api.nasa.gov/planetary/apod?api_key=RioAxhYhTzbsQYi7ufl2JW69FfowN4GyRHLeOkM4&format=JSON");
+                responseMes = await httpClient.GetAsync("http://www.graylogictech.com/glt_cs/BuddyTrackerWebservice.asmx/authenticate?userid=sairam&pwd=1234&lat=&log=");
 
                 responseMes.EnsureSuccessStatusCode();
 
@@ -82,14 +84,12 @@ namespace buddyConnect
             catch (Exception ex)
             {
                 // Need to convert int HResult to hex string
-                res.Text = "Error = " + ex.HResult.ToString("X") +
+                usernameTb.Text = "Error = " + ex.HResult.ToString("X") +
                     "  Message: " + ex.Message;
                 responseBodyAsText = "";
             }
-
-            apodObj = JsonConvert.DeserializeObject<apod>(responseBodyAsText);
-            stats.Text = responseMes.StatusCode + " " + responseMes.ReasonPhrase;
-            DataContext = apodObj;
+            usernameTb.Text = responseBodyAsText;
+            DataContext = loginCObj;
 
         }
     }

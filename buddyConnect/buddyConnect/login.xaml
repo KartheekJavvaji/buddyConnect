@@ -76,6 +76,11 @@
                 Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
                 Foreground="{ThemeResource SystemControlBackgroundAccentBrush}"
                 Content="ok"/>
+        <TextBlock x:Name="usernameTb"
+                   Text="username"
+                   Grid.Row="2"
+                   TextWrapping="Wrap"
+                   Style="{ThemeResource tbHam}"/>
         <HyperlinkButton x:Name="newUser" 
                          Content="new user?"
                          Grid.Column="1"
