@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text.RegularExpressions;
+using System.Xml.Serialization;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -14,6 +15,10 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using buddyConnect.Models;
+using Newtonsoft.Json;
+using System.Net.Http;
+using Windows.UI.Popups;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -24,21 +29,45 @@ namespace buddyConnect
     /// </summary>
     public sealed partial class newuser : Page
     {
+
+        private HttpClient httpClient;
+        private HttpResponseMessage responseMes;
         string gender;
         string statusString;
         bool emailInvalid;
+        signup signupObj;
         public newuser()
         {
             this.InitializeComponent();
+            httpClient = new HttpClient();
         }
 
-        private void signup_Click(object sender, RoutedEventArgs e)
+        private async void signup_Click(object sender, RoutedEventArgs e)
         {
             string usernam = username.Text;
             string passwor = password.Password;
             string emai = email.Text;
-            string getSign = "www.graylogic.com/glt_cs/BuddyTrackerWebservice.asmx/RegisterUser?UserName="+usernam+"&Password="+passwor+"&Age=&Latitude="+ "&Longitude=" + "&Status="+statusString+"&Email=" +emai+ "&ProFile_ImgUrl=" + "&condition=insert&gender=" +gender+ "&phoneno=";
+            string responseBodyAsText="";
 
+            string getSign = "www.graylogic.com/glt_cs/BuddyTrackerWebservice.asmx/RegisterUser?UserName=" + usernam + "&Password=" + passwor + "&Age=&Latitude=" + "&Longitude=" + "&Status=" + statusString + "&Email=" + emai + "&ProFile_ImgUrl=" + "&condition=insert&gender=" + gender + "&phoneno=";
+            try
+            {
+                responseMes = await httpClient.GetAsync(getSign);
+
+                responseMes.EnsureSuccessStatusCode();
+
+                responseBodyAsText = await responseMes.Content.ReadAsStringAsync();
+
+            }
+            catch(Exception ex)
+            {
+                var mes = new MessageDialog(ex.ToString(),"error");
+            }
+             XmlSerializer x = new XmlSerializer(typeof(ResponseString));
+            ResponseString myTest = (ResponseString)x.Deserialize(new StringReader(responseBodyAsText));
+            string res = myTest.Text;
+            signupObj = JsonConvert.DeserializeObject<signup>(res);
+            var mes2= new MessageDialog()
         }
 
         private void username_TextChanged(object sender, TextChangedEventArgs e)

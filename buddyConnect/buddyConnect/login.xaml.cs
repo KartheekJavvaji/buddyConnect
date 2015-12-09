@@ -39,14 +39,7 @@ namespace buddyConnect
             httpClient = new HttpClient();
         }
 
-        [XmlRoot(ElementName = "string", Namespace = "http://tempuri.org/")]
-        public class ResponseString
-        {
-            [XmlAttribute(AttributeName = "xmlns")]
-            public string Xmlns { get; set; }
-            [XmlText]
-            public string Text { get; set; }
-        }
+      
         private void username_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (!string.IsNullOrEmpty(username.Text))
@@ -74,7 +67,7 @@ namespace buddyConnect
             // If we can't create a valid URI, 
             // We notify the user about the incorrect input.
              
-        string responseBodyAsText;
+            string responseBodyAsText="";
 
             string getLogin= "http://www.graylogictech.com/glt_cs/BuddyTrackerWebservice.asmx/authenticate?userid="+username.Text+"&pwd="+password.Password+"&lat=&log=";
             try
@@ -89,8 +82,7 @@ namespace buddyConnect
             catch (Exception ex)
             {
                 // Need to convert int HResult to hex string
-                
-                responseBodyAsText = "";
+                var mes = new Windows.UI.Popups.MessageDialog(ex.ToString());
             }
 
             XmlSerializer x = new XmlSerializer(typeof(ResponseString));
