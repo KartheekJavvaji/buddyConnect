@@ -14,6 +14,6 @@ namespace buddyConnect.Models
 
     public class signup
     {
-        public List<Datum> data { get; set; }
+        public List<signupDatum> data { get; set; }
     }
 }
