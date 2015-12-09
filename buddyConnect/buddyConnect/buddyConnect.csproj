@@ -111,6 +111,9 @@
     <Compile Include="home.xaml.cs">
       <DependentUpon>home.xaml</DependentUpon>
     </Compile>
+    <Compile Include="homeviews\buddies.xaml.cs">
+      <DependentUpon>buddies.xaml</DependentUpon>
+    </Compile>
     <Compile Include="homeviews\chats.xaml.cs">
       <DependentUpon>chats.xaml</DependentUpon>
     </Compile>
@@ -139,6 +142,18 @@
     <Compile Include="settings.xaml.cs">
       <DependentUpon>settings.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View Models\AboutViewModel.cs" />
+    <Compile Include="View Models\BaseViewModel.cs" />
+    <Compile Include="View Models\FindFriendsViewModel.cs" />
+    <Compile Include="View Models\FriendLocationViewModel.cs" />
+    <Compile Include="View Models\HomeViewModel.cs" />
+    <Compile Include="View Models\homeviewmodels\BuddiesViewModel.cs" />
+    <Compile Include="View Models\homeviewmodels\ChatsViewModel.cs" />
+    <Compile Include="View Models\MainPageViewModel.cs" />
+    <Compile Include="View Models\NewUserViewModel.cs" />
+    <Compile Include="View Models\ProfileViewModel.cs" />
+    <Compile Include="View Models\RequestsViewModel.cs" />
+    <Compile Include="View Models\SettingsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -178,6 +193,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="home.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="homeviews\buddies.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
