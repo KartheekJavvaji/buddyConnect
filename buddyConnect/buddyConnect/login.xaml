@@ -69,6 +69,7 @@
                 Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
                 Foreground="{ThemeResource SystemControlBackgroundAccentBrush}"
                 Content="forgot password"/>
+        
         <Button x:Name="loginButton"
                 Grid.Row="2"
                 Grid.Column="1"
@@ -80,6 +81,7 @@
                 Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
                 Foreground="{ThemeResource SystemControlBackgroundAccentBrush}"
                 Content="ok"/>
+        
         <HyperlinkButton x:Name="newUser" 
                          Content="new user?"
                          Grid.Column="1"

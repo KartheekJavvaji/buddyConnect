@@ -111,6 +111,9 @@
     <Compile Include="home.xaml.cs">
       <DependentUpon>home.xaml</DependentUpon>
     </Compile>
+    <Compile Include="homeviews\chats.xaml.cs">
+      <DependentUpon>chats.xaml</DependentUpon>
+    </Compile>
     <Compile Include="login.xaml.cs">
       <DependentUpon>login.xaml</DependentUpon>
     </Compile>
@@ -118,6 +121,8 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\forgotpassword.cs" />
+    <Compile Include="Models\homemodels\buddieshome.cs" />
+    <Compile Include="Models\homemodels\chatshomemodel.cs" />
     <Compile Include="Models\loginC.cs" />
     <Compile Include="Models\responsestring.cs" />
     <Compile Include="Models\signup.cs" />
@@ -176,6 +181,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="homeviews\chats.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -201,6 +210,7 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

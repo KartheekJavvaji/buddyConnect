@@ -187,5 +187,10 @@ namespace buddyConnect
             var combo = (ComboBox)sender;
             statusString = combo.SelectedIndex.ToString();
         }
+
+        private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(login));
+        }
     }
 }

@@ -27,8 +27,6 @@
             <Setter Property="Width" Value="30"/>
             <Setter Property="Height" Value="30"/>
         </Style>
-
-
         
     </Page.Resources>
     <Grid x:Name="homeGrid" Background="White">
@@ -60,21 +58,7 @@
                         HorizontalAlignment="Stretch"/>
               </Grid>
 
-        <StackPanel Grid.Row="1">
-            <ListView> 
-                <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        <Image Source="{Binding ImagePath}"/>
-                        <TextBlock Text="textbox"/>
-                        <TextBlock Text="name" />
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-            </ListView>
-            <TextBlock Text="FriendChat"
-           Style="{ThemeResource tb1}"
-           HorizontalAlignment="Center"/>
-        </StackPanel>
+           <Frame x:Name="homeFrame"
+                  Grid.Row="1"/>        
         </Grid>
 </Page>
