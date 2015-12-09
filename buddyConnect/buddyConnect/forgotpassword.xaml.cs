@@ -29,7 +29,7 @@ namespace buddyConnect
     {
         private HttpClient httpClient;
         private HttpResponseMessage responseMes;
-        forgotpassword forgotpasswordObj;
+        forgotpasswordClass forgotpasswordObj;
         public forgotpassword()
         {
             this.InitializeComponent();
@@ -38,7 +38,7 @@ namespace buddyConnect
 
         private async void forgotPassword_Click(object sender, RoutedEventArgs e)
         {
-            string forgotpasswordSt = "http://www.graylogictech.com/glt_cs/BuddyTrackerWebservice.asmx/RegisterUser?UserName=" + usernam + "&Password=" + passwor + "&Age=&Latitude=&Longitude=&Status=" + statusString + "&Email=" + emai + "&ProFile_ImgUrl=&condition=insert&gender=" + gender + "&phoneno=";
+            string forgotpasswordSt = "http://www.graylogictech.com/glt_cs/BuddyTrackerWebservice.asmx/ForgorPassword?Userid="+username.Text;
 
             string responseBodyAsText = "";
             //var mess = new MessageDialog(getSign);
@@ -59,10 +59,14 @@ namespace buddyConnect
             XmlSerializer x = new XmlSerializer(typeof(ResponseString));
             ResponseString myTest = (ResponseString)x.Deserialize(new StringReader(responseBodyAsText));
             string res = myTest.Text;
-            forgotpasswordObj = JsonConvert.DeserializeObject<forgotpassword>(res);
-            var mes2 = new MessageDialog(username.Text + ", follow the intructions sent to your mail.");
+            forgotpasswordObj = JsonConvert.DeserializeObject<forgotpasswordClass>(res);
+            var mes2 = new MessageDialog(username.Text + ", follow the instructions sent to your mail.");
             await mes2.ShowAsync();
-            if()
+            if (forgotpasswordObj.data[0].result == "true")
+            {
+                Frame.Navigate(typeof(login));
+            }
+
         }
     }
 }

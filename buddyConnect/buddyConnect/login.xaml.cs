@@ -102,7 +102,10 @@ namespace buddyConnect
 
         }
 
-           
+        private void forgotPassword_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(forgotpassword));
+        }
     }
     
 }

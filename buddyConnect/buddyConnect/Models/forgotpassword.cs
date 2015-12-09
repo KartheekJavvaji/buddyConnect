@@ -12,7 +12,7 @@ namespace buddyConnect.Models
         public string output { get; set; }
     }
 
-    public class forgotpassword
+    public class forgotpasswordClass
     {
         public List<forgotpasswordDatum> data { get; set; }
     }

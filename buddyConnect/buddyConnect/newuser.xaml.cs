@@ -69,11 +69,31 @@ namespace buddyConnect
             ResponseString myTest = (ResponseString)x.Deserialize(new StringReader(responseBodyAsText));
             string res = myTest.Text;
             signupObj = JsonConvert.DeserializeObject<signup>(res);
-            var mes2 = new MessageDialog("Hi " + usernam + ", you have successfully registered!");
-            await mes2.ShowAsync();
             if (signupObj.data[0].result == "true")
             {
+                var mes2 = new MessageDialog("Hi " + usernam + ", you have successfully registered!");
+                await mes2.ShowAsync();
                 Frame.Navigate(typeof(login));
+            }
+            else
+            if(signupObj.data[0].output=="email already exists")
+            {
+                var mes2 = new MessageDialog("The entered email is already associated with an other username");
+                await mes2.ShowAsync();
+                Frame.Navigate(typeof(newuser));
+            }
+            else
+            if(signupObj.data[0].output=="userid exists")
+            {
+                var mes2 = new MessageDialog("username already exists");
+                await mes2.ShowAsync();
+                Frame.Navigate(typeof(newuser));
+            }
+            else
+            {
+                var mes5 = new MessageDialog("Please check the connection and try again in a few minutes");
+                await mes5.ShowAsync();
+                Frame.Navigate(typeof(newuser));
             }
         }
 

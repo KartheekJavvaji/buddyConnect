@@ -64,6 +64,7 @@
                 Grid.Row="2"
                 Margin="20,0,5,0"
                 HorizontalAlignment="Stretch"
+                Click="forgotPassword_Click"
                 BorderBrush="{ThemeResource SystemControlBackgroundAccentBrush}"
                 Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
                 Foreground="{ThemeResource SystemControlBackgroundAccentBrush}"
