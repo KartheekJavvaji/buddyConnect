@@ -11,9 +11,9 @@ namespace buddyConnect.View_Models.homeviewmodels
     {
         public class SecondPageViewModel : BaseViewModel
         {
-            private Buddies selectedItem;
+            private buddieshome selectedItem;
 
-            public Buddies SelectedItem
+            public buddieshome SelectedItem
             {
                 get { return selectedItem; }
                 set
@@ -27,7 +27,19 @@ namespace buddyConnect.View_Models.homeviewmodels
             {
                 base.LoadDesignTimeData();
 
-                SelectedItem = new Buddies() { Title = "Design Time Selected Item", Subtitle = "Design subtitle", HexColor = "#333333" };
+                SelectedItem  = new buddieshome();
+                SelectedItem.data[0].age = "19";
+                SelectedItem.data[0].createddate = "";
+                SelectedItem.data[0].email = "iroozegar@hotmail.com";
+                SelectedItem.data[0].gender = "male";
+                SelectedItem.data[0].latitude = "0";
+                SelectedItem.data[0].longitude = "0";
+                SelectedItem.data[0].password = "iman2022";
+                SelectedItem.data[0].profile_imgurl = "http://www.graylogictech.com/glt_cs/upload_images/buddytracker/conner.jpg";
+                SelectedItem.data[0].result = "true";
+                SelectedItem.data[0].sno = "4960";
+                 SelectedItem.data[0].status = "single";
+                SelectedItem.data[0].username = "conner";
             }
         }
 
