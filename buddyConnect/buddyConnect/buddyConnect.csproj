@@ -142,8 +142,8 @@
     <Compile Include="settings.xaml.cs">
       <DependentUpon>settings.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View Models\AboutViewModel.cs" />
     <Compile Include="View Models\BaseViewModel.cs" />
+    <Compile Include="View Models\BaseViewModelLocator.cs" />
     <Compile Include="View Models\FindFriendsViewModel.cs" />
     <Compile Include="View Models\FriendLocationViewModel.cs" />
     <Compile Include="View Models\HomeViewModel.cs" />

@@ -182,7 +182,7 @@ namespace buddyConnect
                 
         }
 
-        private async void status_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void status_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var combo = (ComboBox)sender;
             statusString = combo.SelectedIndex.ToString();

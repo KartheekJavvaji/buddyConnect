@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace buddyConnect.View_Models.homeviewmodels
 {
-    class ChatsViewModel
+    public class ChatsViewModel : BaseViewModel
     {
+
     }
 }

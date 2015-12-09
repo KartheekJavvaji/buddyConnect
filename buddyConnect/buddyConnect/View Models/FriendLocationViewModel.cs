@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace buddyConnect.View_Models
 {
-    class FriendLocationViewModel
+    public class FriendLocationViewModel : BaseViewModel
     {
     }
 }
