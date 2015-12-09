@@ -9,11 +9,6 @@
     DataContext="{Binding Path=Chats,Source={StaticResource ViewModelLocator}}">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <StackPanel Background="{Binding SelectedItem.HexColor}" Padding="20">
-            <TextBlock Text="Chats" Style="{ThemeResource TitleTextBlockStyle}" />
-            <TextBlock Style="{ThemeResource HeaderTextBlockStyle}" />
-            <TextBlock Style="{ThemeResource SubheaderTextBlockStyle}" />
-
-        </StackPanel>
+        
     </Grid>
 </Page>

@@ -16,9 +16,7 @@
             <Setter Property="FontSize" Value="18"/>
             <Setter Property="FontFamily" Value="Segoe WP SemiLight"/>
         </Style>
-
             <vm:BaseViewModelLocator x:Key="ViewModelLocator"/>
-
     </Application.Resources>
 
 </Application>
