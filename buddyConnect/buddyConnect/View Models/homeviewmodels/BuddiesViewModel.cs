@@ -10,8 +10,8 @@ namespace buddyConnect.View_Models.homeviewmodels
 {
     public class BuddiesViewModel : BaseViewModel
     {
-        private ObservableCollection<Buddies> testItems = new ObservableCollection<Buddies>();
-        public ObservableCollection<Buddies> TestItems
+        private ObservableCollection<buddieshome> testItems = new ObservableCollection<buddieshome>();
+        public ObservableCollection<buddieshome> TestItems
         {
             get { return testItems; }
             set
@@ -25,12 +25,20 @@ namespace buddyConnect.View_Models.homeviewmodels
         {
             base.LoadDesignTimeData();
 
-            for (var i = 1; i < 10; i++)
-            {
-                var color = string.Join("", Enumerable.Repeat(i.ToString(), 6));
-                var testItem = new Buddies() { Id = i, Title = "Test Item " + i, Subtitle = "Subtitle " + i, HexColor = string.Concat("#", color) };
-                TestItems.Add(testItem);
-            }
+
+            var testItem = new buddieshome();
+            testItem.data[0].age = "19";
+            testItem.data[0].createddate = "";
+            testItem.data[0].email = "iroozegar@hotmail.com";
+            testItem.data[0].gender = "male";
+            testItem.data[0].latitude = "0";
+            testItem.data[0].longitude = "0";
+            testItem.data[0].password = "iman2022";
+            testItem.data[0].profile_imgurl = "http://www.graylogictech.com/glt_cs/upload_images/buddytracker/conner.jpg";
+            testItem.data[0].result = "true";
+            testItem.data[0].sno = "4960";
+            testItem.data[0].status = "single";
+            testItem.data[0].username = "conner";
         }
     }
 }
