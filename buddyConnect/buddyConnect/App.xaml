@@ -17,8 +17,8 @@
             <Setter Property="FontFamily" Value="Segoe WP SemiLight"/>
         </Style>
 
-        <ResourceDictionary>
-            <vm:BaseViewModelLocator x:Key="ViewModelLocator" />
+        <ResourceDictionary x:Key="resourceDictionary">
+            <vm:BaseViewModelLocator x:Key="ViewModelLocator"/>
         </ResourceDictionary>
 
     </Application.Resources>
