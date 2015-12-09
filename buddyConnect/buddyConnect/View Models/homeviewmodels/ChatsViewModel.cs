@@ -22,13 +22,14 @@ namespace buddyConnect.View_Models.homeviewmodels
                     RaisePropertyChanged();
                 }
             }
+
+            protected override void LoadDesignTimeData()
+            {
+                base.LoadDesignTimeData();
+
+                SelectedItem = new Buddies() { Title = "Design Time Selected Item", Subtitle = "Design subtitle", HexColor = "#333333" };
+            }
         }
 
-        protected override void LoadDesignTimeData()
-        {
-            base.LoadDesignTimeData();
-
-            SelectedItem = new Buddies() { Title = "Design Time Selected Item", Subtitle = "Design subtitle", HexColor = "#333333" };
-        }
     }
 }
