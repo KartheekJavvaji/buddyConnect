@@ -9,6 +9,15 @@ namespace buddyConnect.View_Models
 {
     public class BaseViewModel : ViewModelBase
     {
+        public BaseViewModel()
+        {
+            if (this.IsInDesignMode)
+            {
+                LoadDesignTimeData();
+            }
+        }
+
+        protected virtual void LoadDesignTimeData() { }
 
         private bool isLoading;
         public virtual bool IsLoading
