@@ -9,7 +9,7 @@ using buddyConnect.View_Models.homeviewmodels;
 
 namespace buddyConnect.View_Models
 {
-      public class BaseViewModelLocator
+      public class BaseViewModelLocator 
     {
         public BaseViewModelLocator()
         {
