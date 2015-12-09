@@ -37,7 +37,7 @@ namespace buddyConnect
             string usernam = username.Text;
             string passwor = password.Password;
             string emai = email.Text;
-            string getSign = "www.graylogic.com/glt_cs/BuddyTrackerWebservice.asmx/RegisterUser?UserName="+usernam+"&Password="+passwor+"&Age=&Latitude="+ "&Longitude=" + "&Status=string&Email=" +emai+ "&ProFile_ImgUrl=" + "&condition=string&gender=" +gender+ "&phoneno=";
+            string getSign = "www.graylogic.com/glt_cs/BuddyTrackerWebservice.asmx/RegisterUser?UserName="+usernam+"&Password="+passwor+"&Age=&Latitude="+ "&Longitude=" + "&Status="+statusString+"&Email=" +emai+ "&ProFile_ImgUrl=" + "&condition=insert&gender=" +gender+ "&phoneno=";
 
         }
 

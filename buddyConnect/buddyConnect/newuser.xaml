@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Margin="15,40,0,0"  
+    <Grid Margin="0,40,0,0"  
           MaxWidth="600"
           Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
@@ -16,6 +16,7 @@
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         <TextBlock Text="sign up" 
+                   Margin="15,0,0,0"
                    Foreground="{ThemeResource SystemControlBackgroundAccentBrush}"
                    FontSize="28"/>
         <ScrollViewer Grid.Row="1" 
