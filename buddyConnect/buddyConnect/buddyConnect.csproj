@@ -102,6 +102,9 @@
     <Compile Include="findFriends.xaml.cs">
       <DependentUpon>findFriends.xaml</DependentUpon>
     </Compile>
+    <Compile Include="forgotpassword.xaml.cs">
+      <DependentUpon>forgotpassword.xaml</DependentUpon>
+    </Compile>
     <Compile Include="friendLocation.xaml.cs">
       <DependentUpon>friendLocation.xaml</DependentUpon>
     </Compile>
@@ -114,6 +117,7 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\forgotpassword.cs" />
     <Compile Include="Models\loginC.cs" />
     <Compile Include="Models\responsestring.cs" />
     <Compile Include="Models\signup.cs" />
@@ -157,6 +161,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="findFriends.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="forgotpassword.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

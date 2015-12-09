@@ -47,9 +47,11 @@ namespace buddyConnect
             string usernam = username.Text;
             string passwor = password.Password;
             string emai = email.Text;
-            string responseBodyAsText="";
+            string responseBodyAsText = "";
+            string getSign = "http://www.graylogictech.com/glt_cs/BuddyTrackerWebservice.asmx/RegisterUser?UserName=" + usernam + "&Password=" + passwor + "&Age=&Latitude=&Longitude=&Status=" + statusString + "&Email=" + emai + "&ProFile_ImgUrl=&condition=insert&gender=" + gender + "&phoneno=";
 
-            string getSign = "www.graylogic.com/glt_cs/BuddyTrackerWebservice.asmx/RegisterUser?UserName=" + usernam + "&Password=" + passwor + "&Age=&Latitude=" + "&Longitude=" + "&Status=" + statusString + "&Email=" + emai + "&ProFile_ImgUrl=" + "&condition=insert&gender=" + gender + "&phoneno=";
+            //var mess = new MessageDialog(getSign);
+            //await mess.ShowAsync();
             try
             {
                 responseMes = await httpClient.GetAsync(getSign);
@@ -59,15 +61,20 @@ namespace buddyConnect
                 responseBodyAsText = await responseMes.Content.ReadAsStringAsync();
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                var mes = new MessageDialog(ex.ToString(),"error");
+                var mes = new MessageDialog(ex.ToString(), "error");
             }
-             XmlSerializer x = new XmlSerializer(typeof(ResponseString));
+            XmlSerializer x = new XmlSerializer(typeof(ResponseString));
             ResponseString myTest = (ResponseString)x.Deserialize(new StringReader(responseBodyAsText));
             string res = myTest.Text;
             signupObj = JsonConvert.DeserializeObject<signup>(res);
-            var mes2= new MessageDialog()
+            var mes2 = new MessageDialog("Hi " + usernam + ", you have successfully registered!");
+            await mes2.ShowAsync();
+            if (signupObj.data[0].result == "true")
+            {
+                Frame.Navigate(typeof(login));
+            }
         }
 
         private void username_TextChanged(object sender, TextChangedEventArgs e)
@@ -155,11 +162,10 @@ namespace buddyConnect
                 
         }
 
-        private void status_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private async void status_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var combo = (ComboBox)sender;
-            var item = (ComboBoxItem)combo.SelectedItem;
-            statusString = item.Content.ToString();
+            statusString = combo.SelectedIndex.ToString();
         }
     }
 }
