@@ -6,9 +6,18 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    DataContext="{Binding Path=Buddies, Source={StaticResource ViewModelLocator}}">
+    DataContext="{Binding Path=buddies, Source={StaticResource ViewModelLocator}}">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    
+        <ListView ItemsSource="{Binding LoginCO}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                    <TextBlock Text="{Binding email}"/>
+                        <TextBlock Text="{Binding username}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Page>

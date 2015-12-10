@@ -19,15 +19,15 @@ namespace buddyConnect.View_Models.homeviewmodels
         private HttpResponseMessage responseMes;
         List<loginCDatum> loginCObj;
 
-        private ObservableCollection<loginCDatum> LoginCO = new ObservableCollection<loginCDatum>();
+        private ObservableCollection<loginCDatum> loginCO = new ObservableCollection<loginCDatum>();
         private string responseBodyAsText;
 
-        public ObservableCollection<loginCDatum> TestItems
+        public ObservableCollection<loginCDatum> LoginCO
         {
-            get { return LoginCO; }
+            get { return loginCO; }
             set
             {
-                LoginCO = value;
+                loginCO = value;
                 RaisePropertyChanged();
             }
         }
@@ -41,9 +41,9 @@ namespace buddyConnect.View_Models.homeviewmodels
         {
             base.LoadState(navParameter, state);
             httpClient = new HttpClient();
-            if (!TestItems.Any())
+            if (!LoginCO.Any())
             {
-                string getLogin = "http://www.graylogictech.com/glt_cs/BuddyTrackerWebservice.asmx/authenticate?userid=sairam&pwd=1234&lat=&log=";
+                string getLogin = "http://www.graylogictech.com/glt_cs/BuddyTrackerWebservice.asmx/authenticate?userid=sairam&pwd=&lat=&log=";
                 try
                 {
                     responseMes = await httpClient.GetAsync(getLogin);
@@ -63,7 +63,7 @@ namespace buddyConnect.View_Models.homeviewmodels
                 ResponseString myTest = (ResponseString)x.Deserialize(new StringReader(responseBodyAsText));
                 string res = myTest.Text;
                 loginCObj = JsonConvert.DeserializeObject<List<loginCDatum>>(res);
-                LoginCO = new ObservableCollection<loginCDatum>(loginCObj);
+                ObservableCollection<loginCDatum> loginCO = new ObservableCollection<loginCDatum>(loginCObj);
                 
             }
         }

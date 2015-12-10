@@ -32,13 +32,16 @@ namespace buddyConnect
 
         private HttpClient httpClient;
         private HttpResponseMessage responseMes;
-        List<loginCDatum> loginCObj;
+        loginC loginCObj;
         public login()
         {
             this.InitializeComponent();
 
             httpClient = new HttpClient();
-        }
+            }
+            
+
+    
 
 
     private void username_TextChanged(object sender, TextChangedEventArgs e)
@@ -89,14 +92,10 @@ namespace buddyConnect
             XmlSerializer x = new XmlSerializer(typeof(ResponseString));
             ResponseString myTest = (ResponseString)x.Deserialize(new StringReader(responseBodyAsText));
             string res = myTest.Text;
-            loginCObj = JsonConvert.DeserializeObject< List<loginCDatum> >(res);
-            ObservableCollection<loginCDatum> loginCO = new ObservableCollection<loginCDatum>(loginCObj);
-
-
-            if (loginCObj[0].result == "true")
+            loginCObj = JsonConvert.DeserializeObject<loginC>(res);
+            if (loginCObj.data[0].result == "true")
             {
                 Frame.Navigate(typeof(MainPage),loginCObj);
-                
 
             }
             else

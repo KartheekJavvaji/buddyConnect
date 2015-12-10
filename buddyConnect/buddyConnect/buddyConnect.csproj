@@ -142,6 +142,7 @@
     <Compile Include="settings.xaml.cs">
       <DependentUpon>settings.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SuspensionManager.cs" />
     <Compile Include="View Models\BaseViewModel.cs" />
     <Compile Include="View Models\BaseViewModelLocator.cs" />
     <Compile Include="View Models\FindFriendsViewModel.cs" />
@@ -154,6 +155,8 @@
     <Compile Include="View Models\ProfileViewModel.cs" />
     <Compile Include="View Models\RequestsViewModel.cs" />
     <Compile Include="View Models\SettingsViewModel.cs" />
+    <Compile Include="ViewBaseModel.cs" />
+    <Compile Include="WindowsViewModelLocator.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">

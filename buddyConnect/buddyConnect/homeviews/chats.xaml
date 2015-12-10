@@ -9,9 +9,7 @@
     DataContext="{Binding Path=Chats,Source={StaticResource ViewModelLocator}}">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" DataContext="{Binding Source={StaticResource ViewModelLocator}}">
-        <ListView x:Name="listView" HorizontalAlignment="Right" ItemsSource="{Binding buddies.TestItems}" Margin="19,12,19,0">
-            
-        </ListView>
+        
 
     </Grid>
 </Page>
