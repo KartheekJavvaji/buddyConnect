@@ -9,7 +9,6 @@
     DataContext="{Binding Path=Buddies, Source={StaticResource ViewModelLocator}}">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        
-
+    
     </Grid>
 </Page>

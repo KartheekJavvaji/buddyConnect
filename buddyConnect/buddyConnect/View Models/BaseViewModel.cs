@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,5 +30,19 @@ namespace buddyConnect.View_Models
                 RaisePropertyChanged();
             }
         }
+
+        #region State Management
+
+        public virtual void LoadState(object navParameter, Dictionary<string, object> state) { }
+
+        public virtual void SaveState(Dictionary<string, object> state) { }
+
+        protected virtual T RestoreStateItem<T>(Dictionary<string, object> state, string stateKey, T defaultValue = default(T))
+        {
+            return state != null && state.ContainsKey(stateKey) && state[stateKey] != null && state[stateKey] is T ? (T)state[stateKey] : defaultValue;
+        }
+
+        #endregion
+        
     }
 }

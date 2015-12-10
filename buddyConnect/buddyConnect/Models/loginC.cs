@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace buddyConnect.Models
 {
-    public class Datum
+    public class loginCDatum
     {
         public string result { get; set; }
         public string output { get; set; }
@@ -33,8 +33,9 @@ namespace buddyConnect.Models
 
     public class loginC
     {
-        public List<Datum> data { get; set; }
+        public List<loginCDatum> data { get; set; }
         
     }
+
     
 }
