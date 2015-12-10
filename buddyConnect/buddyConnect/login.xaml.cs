@@ -28,7 +28,6 @@ namespace buddyConnect
     /// </summary>
     public sealed partial class login : Page
     {
-        loginC loginCObj;
 
         private HttpClient httpClient;
         private HttpResponseMessage responseMes;
